@@ -77,7 +77,7 @@ abstract class TestCase extends Orchestra
             static fn (): WebhookProxyRouteDefinition => new class implements WebhookProxyRouteDefinition {
                 public function uri(): string
                 {
-                    return '/webhooks/proxy/{endpointKey}/{tenant?}';
+                    return '/webhooks/proxy/{endpointKey}/{scope?}';
                 }
             },
         );
@@ -86,7 +86,7 @@ abstract class TestCase extends Orchestra
     protected function defineRoutes($router): void
     {
         Route::get('/sentinel', static fn (): string => 'sentinel');
-        Route::webhooks('/{tenant?}')->proxy();
+        Route::webhooks('/{scope?}')->proxy();
     }
 
     protected function defineDatabaseMigrations(): void

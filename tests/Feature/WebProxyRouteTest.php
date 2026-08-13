@@ -13,18 +13,18 @@ it('registers the root webhook channel at the canonical proxy path', function ()
     ));
 
     expect(mb_ltrim($route->getActionName(), '\\'))->toBe(WebhookController::class)
-        ->and($route->uri())->toBe('webhooks/proxy/{endpointKey}/{tenant?}');
+        ->and($route->uri())->toBe('webhooks/proxy/{endpointKey}/{scope?}');
 });
 
 it('keeps the endpoint context path optional', function (): void {
     expect(Route::getRoutes()->match(Request::create(
         '/webhooks/proxy/example-endpoint',
         'POST',
-    ))->uri())->toBe('webhooks/proxy/{endpointKey}/{tenant?}')
+    ))->uri())->toBe('webhooks/proxy/{endpointKey}/{scope?}')
         ->and(Route::getRoutes()->match(Request::create(
             '/webhooks/proxy/example-endpoint/context-123',
             'POST',
-        ))->uri())->toBe('webhooks/proxy/{endpointKey}/{tenant?}');
+        ))->uri())->toBe('webhooks/proxy/{endpointKey}/{scope?}');
 });
 
 it('does not let the root proxy shorthand capture unrelated routes', function (): void {

@@ -21,7 +21,7 @@ final class WebhookContext
     }
 
     /**
-     * Resolve the webhook context payload for the active tenancy.
+     * Resolve the webhook context payload for the active execution scope.
      */
     public function payload(): WebhookExecutionContextPayload
     {
@@ -35,7 +35,7 @@ final class WebhookContext
     }
 
     /**
-     * Capture the hidden context array for the active tenancy.
+     * Capture the hidden context array for the active execution scope.
      *
      * @return array<string, mixed>
      */
@@ -46,7 +46,7 @@ final class WebhookContext
 
     /**
      * Persist the resolved context into Laravel's hidden context for the
-     * current request/tenancy scope.
+     * current request/execution scope.
      *
      * Re-resolves the context from the current owner and route configuration
      * so repeated bootstraps do not reuse a stale payload.

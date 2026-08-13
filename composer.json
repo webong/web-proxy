@@ -1,6 +1,6 @@
 {
     "name": "webong/web-proxy",
-    "description": "Webhook proxy system for multi-tenant webhook routing and delivery",
+    "description": "Webhook proxy system for scoped webhook routing and delivery",
     "type": "library",
     "license": "MIT",
     "require": {

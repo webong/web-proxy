@@ -10,18 +10,18 @@ it('uses a provided path template to build a callback URL', function (): void {
     $url = app(EndpointUrlGenerator::class)->path('telegram', [
         'webhook_base_url' => 'https://service.example.test',
         'webhook_path_templates' => [
-            'telegram' => '/webhooks/telegram/tenant-123',
+            'telegram' => '/webhooks/telegram/scope-123',
         ],
     ]);
 
-    expect($url)->toBe('https://service.example.test/webhooks/telegram/tenant-123');
+    expect($url)->toBe('https://service.example.test/webhooks/telegram/scope-123');
 });
 
-it('does not infer a tenant segment from unrelated context', function (): void {
+it('does not infer a scope segment from unrelated context', function (): void {
     config()->set('web-proxy.base_url', 'https://service.example.test');
 
     $url = app(EndpointUrlGenerator::class)->path('telegram', [
-        'tenant_id' => 'tenant-123',
+        'scope_id' => 'scope-123',
         'webhook_base_url' => 'https://service.example.test',
         'webhook_path_templates' => [
             'telegram' => '/webhooks/telegram',
@@ -38,13 +38,13 @@ it('prefers an explicit callback base URL over package configuration', function 
         'telegram',
         [
             'webhook_path_templates' => [
-                'telegram' => '/webhooks/telegram/tenant-123',
+                'telegram' => '/webhooks/telegram/scope-123',
             ],
         ],
         'https://custom.example.test/',
     );
 
-    expect($url)->toBe('https://custom.example.test/webhooks/telegram/tenant-123');
+    expect($url)->toBe('https://custom.example.test/webhooks/telegram/scope-123');
 });
 
 it('does not fall back to an unrelated service URL', function (): void {
@@ -56,7 +56,7 @@ it('does not fall back to an unrelated service URL', function (): void {
     expect(fn () => app(EndpointUrlGenerator::class)->path('telegram', [
         'webhook_base_url' => '',
         'webhook_path_templates' => [
-            'telegram' => '/webhooks/telegram/tenant-123',
+            'telegram' => '/webhooks/telegram/scope-123',
         ],
     ]))->toThrow(RuntimeException::class, 'Unable to resolve webhook base URL.');
 });
@@ -95,7 +95,7 @@ it('strips optional parameters from an explicit path template', function (): voi
         [
             'name' => 'custom-receiver',
             'signing_secret' => 'test',
-            'path_template' => '/webhooks/custom/{tenant?}',
+            'path_template' => '/webhooks/custom/{scope?}',
         ],
     ]);
 

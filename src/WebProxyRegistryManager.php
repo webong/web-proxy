@@ -74,7 +74,7 @@ class WebProxyRegistryManager extends Manager
      *
      * This composes an entry under "web-proxy.registries" so a custom registry can
      * be declared at runtime (e.g. from a service provider), including a
-     * custom driver registrar class that owns its own tenancy handling.
+     * custom driver registrar class that owns its own context handling.
      *
      * @param  array<string, mixed>  $registry
      */

@@ -10,8 +10,8 @@ use Throwable;
  * Resolves the raw webhook path templates for the configured receivers, using
  * each receiver's registered webhook-client route (or explicit path template).
  *
- * The package exposes raw route templates and remains agnostic of tenancy,
- * ownership, and any placeholder conventions used by a host.
+ * The package exposes raw route templates and remains agnostic of routing
+ * scope, ownership, and any placeholder conventions used by a host.
  */
 final class WebhookPathTemplates
 {

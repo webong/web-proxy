@@ -17,7 +17,7 @@ return [
     | Context Provider
     |--------------------------------------------------------------------------
     |
-    | Integrators may provide a context provider for tenant, authority, or
+    | Integrators may provide a context provider for routing scope, authority, or
     | request-specific webhook routing. The package remains context-agnostic.
     |
     */
