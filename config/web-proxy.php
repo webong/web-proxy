@@ -23,10 +23,6 @@ return [
     */
     'context_provider' => null,
 
-    'container' => [
-        'web_proxy' => null,
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Routers
