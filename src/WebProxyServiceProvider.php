@@ -39,15 +39,6 @@ class WebProxyServiceProvider extends ServiceProvider
 
         $this->app->singleton(WebhookPathTemplates::class);
 
-        $contextProvider = config('web-proxy.context_provider');
-
-        if (is_string($contextProvider) && $contextProvider !== '') {
-            $this->app->scoped(
-                Contracts\WebhookContextProvider::class,
-                fn (Container $container): Contracts\WebhookContextProvider => $container->make($contextProvider),
-            );
-        }
-
         $this->app->scoped(WebhookContext::class);
     }
 
