@@ -6,7 +6,6 @@ namespace Zorvia\WebProxy;
 
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Routing\Route as RoutingRoute;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use RuntimeException;
@@ -45,7 +44,7 @@ class WebProxyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->commands([DiscoverWebProxyCommand::class]);
-        $this->discoverOnBoot();
+        $this->app->booted(fn (): mixed => $this->discoverOnBoot());
         $this->registerConfiguredRouters();
 
         $this->publishes([
@@ -61,15 +60,6 @@ class WebProxyServiceProvider extends ServiceProvider
 
     private function discoverOnBoot(): void
     {
-        /**
-         * Composer's package:discover command boots every service provider
-         * before the application is fully initialized. Discovery belongs to
-         * the running application lifecycle, not Composer's bootstrap pass.
-         */
-        if ($this->app->runningInConsole()) {
-            return;
-        }
-
         if (! (bool) config('web-proxy.discovery.scan_on_boot', false)
             && ! $this->app->environment(['local', 'testing'])) {
             return;
@@ -77,11 +67,11 @@ class WebProxyServiceProvider extends ServiceProvider
 
         $compiledPath = base_path('bootstrap/cache/web-proxy.php');
 
-        if (is_file($compiledPath)) {
+        if (is_file($compiledPath) && ! $this->app->environment('testing')) {
             return;
         }
 
-        Artisan::call('web-proxy:discover');
+        app(WebhookDiscovery::class)->discover();
     }
 
     private function registerConfiguredRouters(): void

@@ -14,6 +14,7 @@ use Zorvia\WebProxy\Jobs\ProcessWebhookJob;
 use Zorvia\WebProxy\Models\WebProxyCall;
 use Zorvia\WebProxy\Tests\Support\TestRouter;
 use Zorvia\WebProxy\Tests\Support\TestSignatureValidator;
+use Zorvia\WebProxy\Tests\Support\TestWebhookJob;
 use Zorvia\WebProxy\Tests\Support\TestWebhookResponse;
 use Zorvia\WebProxy\WebProxy;
 use Zorvia\WebProxy\WebhookProxyRouteDefinition;
