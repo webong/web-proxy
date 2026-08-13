@@ -154,7 +154,7 @@ class WebProxyServiceProvider extends ServiceProvider
             $usesTemplate = str_contains($uri, '{template}');
             $channelPath = mb_trim((string) ($channelConfig['path'] ?? '/'), '/');
 
-            // A root proxy route is shorthand for the application's canonical
+            // A root proxy route is shorthand for the canonical
             // webhook proxy path. Template routes remain fully controlled by
             // their caller and do not receive this fallback.
             if (! $usesTemplate && $channelPath === '') {

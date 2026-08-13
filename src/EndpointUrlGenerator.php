@@ -49,7 +49,7 @@ class EndpointUrlGenerator
     }
 
     /**
-     * Build the application reply URL for an endpoint before it is registered.
+     * Build the configured callback URL for an endpoint before it is registered.
      *
      * @param array<string, string> $routeParameters
      */

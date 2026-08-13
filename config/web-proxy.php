@@ -17,7 +17,7 @@ return [
     | Context Provider
     |--------------------------------------------------------------------------
     |
-    | Applications may provide a context provider for tenant, authority, or
+    | Integrators may provide a context provider for tenant, authority, or
     | request-specific webhook routing. The package remains context-agnostic.
     |
     */
@@ -28,7 +28,7 @@ return [
     | Routers
     |--------------------------------------------------------------------------
     |
-    | Maps webhook-client names to router classes. Applications may generate
+    | Maps webhook-client names to router classes. Integrators may generate
     | this section from #[WebhookRouter] attributes with the discovery command.
     |
     */
@@ -40,7 +40,7 @@ return [
     | Targets
     |--------------------------------------------------------------------------
     |
-    | Maps target types and keys to target classes. Applications may generate
+    | Maps target types and keys to target classes. Integrators may generate
     | this section from #[WebhookTarget] attributes with the discovery command.
     |
     */
@@ -126,8 +126,8 @@ return [
         ],
 
         /*
-         | The built-in database driver provisions an application-owned
-         | endpoint. Applications may provide another EndpointDriver class.
+         | The built-in database driver provisions a package-managed endpoint.
+         | Integrators may provide another EndpointDriver class.
         */
     ],
 

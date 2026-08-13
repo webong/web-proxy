@@ -11,7 +11,7 @@ use Throwable;
  * each receiver's registered webhook-client route (or explicit path template).
  *
  * The package is agnostic of tenancy: placeholder interpolation is the
- * responsibility of the application driver that knows the tenant context.
+ * responsibility of the integration driver that knows the routing context.
  */
 final class WebhookPathTemplates
 {
