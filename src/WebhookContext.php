@@ -82,7 +82,7 @@ final class WebhookContext
         return new WebhookExecutionContextPayload(
             ownerId: $ownerKey,
             baseUrl: $this->baseUrlResolver->resolve(),
-            pathTemplates: $pathTemplates ?? $this->pathTemplates->forOwner($ownerKey),
+            pathTemplates: $pathTemplates ?? $this->pathTemplates->all(),
             routeParameters: $this->routeParameters($ownerKey),
             routeContext: $ownerKey === null ? null : rawurlencode($ownerKey),
         );

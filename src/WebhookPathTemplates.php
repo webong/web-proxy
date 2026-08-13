@@ -10,8 +10,8 @@ use Throwable;
  * Resolves the raw webhook path templates for the configured receivers, using
  * each receiver's registered webhook-client route (or explicit path template).
  *
- * The package is agnostic of tenancy: callers provide only the opaque owner
- * key used to resolve placeholders in the configured route templates.
+ * The package exposes raw route templates and remains agnostic of tenancy,
+ * ownership, and any placeholder conventions used by a host.
  */
 final class WebhookPathTemplates
 {
@@ -38,38 +38,6 @@ final class WebhookPathTemplates
         }
 
         return $templates;
-    }
-
-    /**
-     * Resolve configured route templates for an opaque owner key.
-     *
-     * @return array<string, string>
-     */
-    public function forOwner(?string $ownerKey): array
-    {
-        $templates = $this->all();
-
-        if ($ownerKey === null || $ownerKey === '') {
-            return array_map(
-                static fn (string $template): string => (string) preg_replace(
-                    '/\/\{(?:tenant|tenant_id)\??\}/',
-                    '',
-                    $template,
-                ),
-                $templates,
-            );
-        }
-
-        $replacement = rawurlencode($ownerKey);
-
-        return array_map(
-            static fn (string $template): string => str_replace(
-                ['{tenant}', '{tenant_id}', '{tenant?}'],
-                $replacement,
-                $template,
-            ),
-            $templates,
-        );
     }
 
     /**
