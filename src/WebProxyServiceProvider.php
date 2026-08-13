@@ -67,7 +67,7 @@ class WebProxyServiceProvider extends ServiceProvider
 
         $compiledPath = base_path('bootstrap/cache/web-proxy.php');
 
-        if (is_file($compiledPath) && ! $this->app->environment('testing')) {
+        if (is_file($compiledPath)) {
             return;
         }
 
