@@ -17,6 +17,10 @@ class WebProxyServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/web-proxy.php', 'web-proxy');
 
+        if (! is_string(config('web-proxy.container.web_proxy'))) {
+            config()->set('web-proxy.container.web_proxy', WebProxy::class);
+        }
+
         if (! $this->app->bound(WebhookProxyRouteDefinition::class)) {
             $this->app->bind(WebhookProxyRouteDefinition::class, DefinesWebhookProxyRoute::class);
         }

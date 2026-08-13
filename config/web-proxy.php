@@ -24,7 +24,7 @@ return [
     'context_provider' => null,
 
     'container' => [
-        'web_proxy' => WebProxy::class,
+        'web_proxy' => null,
     ],
 
     /*
