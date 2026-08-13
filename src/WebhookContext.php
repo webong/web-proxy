@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Webong\WebProxy;
 
-use Webong\WebProxy\Contracts\WebhookContextProvider;
 use Closure;
 use Illuminate\Support\Facades\Context;
 
 /**
- * Resolves the webhook proxy context for the active tenancy/authority on
- * demand through the registered WebhookContextProvider, scoping callbacks
- * with the resolved hidden context.
+ * Resolves the webhook proxy context from the owner key supplied by the host
+ * execution bootstrapper, scoping callbacks with the resolved hidden context.
  */
 final class WebhookContext
 {
     public function __construct(
-        private readonly WebhookContextProvider $provider,
+        private readonly WebhookBaseUrlResolver $baseUrlResolver,
+        private readonly WebhookPathTemplates $pathTemplates,
+        private readonly WebhookProxyRouteDefinition $routeDefinition,
     ) {
     }
 
@@ -31,7 +31,7 @@ final class WebhookContext
             return $hidden;
         }
 
-        return $this->provider->resolve();
+        return $this->payloadForOwner($this->ownerKey());
     }
 
     /**
@@ -52,9 +52,13 @@ final class WebhookContext
      * the latest configuration, rather than reusing a previously captured
      * payload.
      */
-    public function hydrate(): void
+    /** @param array<string, string>|null $pathTemplates */
+    public function hydrate(?string $ownerKey = null, ?array $pathTemplates = null): void
     {
-        Context::addHidden($this->captureFrom($this->provider->resolve()));
+        Context::addHidden($this->captureFrom($this->payloadForOwner(
+            $ownerKey ?? $this->ownerKey(),
+            $pathTemplates,
+        )));
     }
 
     /**
@@ -71,6 +75,40 @@ final class WebhookContext
             WebhookExecutionContextPayload::class => $payload,
             WebhookDestinationOwner::CONTEXT_KEY => $payload->ownerId,
         ];
+    }
+
+    /** @param array<string, string>|null $pathTemplates */
+    private function payloadForOwner(?string $ownerKey, ?array $pathTemplates = null): WebhookExecutionContextPayload
+    {
+        return new WebhookExecutionContextPayload(
+            ownerId: $ownerKey,
+            baseUrl: $this->baseUrlResolver->resolve(),
+            pathTemplates: $pathTemplates ?? $this->pathTemplates->forOwner($ownerKey),
+            routeParameters: $this->routeParameters($ownerKey),
+            routeContext: $ownerKey === null ? null : rawurlencode($ownerKey),
+        );
+    }
+
+    private function ownerKey(): ?string
+    {
+        $ownerKey = Context::getHidden(WebhookDestinationOwner::CONTEXT_KEY);
+
+        return is_string($ownerKey) && $ownerKey !== '' ? $ownerKey : null;
+    }
+
+    /** @return array<string, string> */
+    private function routeParameters(?string $ownerKey): array
+    {
+        if ($ownerKey === null) {
+            return [];
+        }
+
+        preg_match_all('/\{([a-zA-Z_][a-zA-Z0-9_]*)\??\}/', $this->routeDefinition->uri(), $matches);
+        $parameter = collect($matches[1] ?? [])->first(
+            static fn (string $name): bool => $name !== 'endpointKey',
+        );
+
+        return is_string($parameter) ? [$parameter => $ownerKey] : [];
     }
 
     /**
