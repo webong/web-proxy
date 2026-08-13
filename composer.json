@@ -1,0 +1,46 @@
+{
+    "name": "zorvia/web-proxy",
+    "description": "Webhook proxy system for multi-tenant webhook routing and delivery",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3 || ^8.4",
+        "illuminate/contracts": "^12.0",
+        "illuminate/support": "^12.0",
+        "spatie/laravel-webhook-client": "^3.5",
+        "spatie/laravel-webhook-server": "^3.10"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zorvia\\WebProxy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zorvia\\WebProxy\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zorvia\\WebProxy\\WebProxyServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true
+    }
+}
