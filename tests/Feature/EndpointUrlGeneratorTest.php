@@ -47,7 +47,7 @@ it('prefers an explicit callback base URL over package configuration', function 
     expect($url)->toBe('https://custom.example.test/webhooks/telegram/tenant-123');
 });
 
-it('does not fall back to an application-specific service URL', function (): void {
+it('does not fall back to an unrelated service URL', function (): void {
     config()->set([
         'web-proxy.base_url' => null,
         'app.service_url' => 'https://service.example.test',
