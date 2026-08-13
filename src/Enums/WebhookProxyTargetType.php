@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Enums;
+namespace Webong\WebProxy\Enums;
 
 enum WebhookProxyTargetType: string
 {

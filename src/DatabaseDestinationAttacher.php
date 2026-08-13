@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\WebhookEvent;
-use Zorvia\WebProxy\Contracts\WebhookJob;
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
-use Zorvia\WebProxy\Models\WebProxyDestination;
-use Zorvia\WebProxy\Models\WebProxyEndpoint;
+use Webong\WebProxy\Contracts\WebhookEvent;
+use Webong\WebProxy\Contracts\WebhookJob;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Models\WebProxyDestination;
+use Webong\WebProxy\Models\WebProxyEndpoint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use RuntimeException;

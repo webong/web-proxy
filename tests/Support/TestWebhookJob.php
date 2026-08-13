@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Tests\Support;
+namespace Webong\WebProxy\Tests\Support;
 
 use Illuminate\Foundation\Queue\Queueable;
-use Zorvia\WebProxy\Contracts\WebhookJob;
-use Zorvia\WebProxy\WebhookProxyDelivery;
+use Webong\WebProxy\Contracts\WebhookJob;
+use Webong\WebProxy\WebhookProxyDelivery;
 
 final class TestWebhookJob implements WebhookJob
 {

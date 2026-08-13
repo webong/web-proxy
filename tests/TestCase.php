@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Tests;
+namespace Webong\WebProxy\Tests;
 
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\WebhookClient\WebhookClientServiceProvider;
 use Spatie\WebhookClient\WebhookProfile\ProcessEverythingWebhookProfile;
 use Spatie\WebhookServer\WebhookServerServiceProvider;
-use Zorvia\WebProxy\Headers;
-use Zorvia\WebProxy\Jobs\ProcessWebhookJob;
-use Zorvia\WebProxy\Models\WebProxyCall;
-use Zorvia\WebProxy\Tests\Support\TestRouter;
-use Zorvia\WebProxy\Tests\Support\TestSignatureValidator;
-use Zorvia\WebProxy\Tests\Support\TestWebhookJob;
-use Zorvia\WebProxy\Tests\Support\TestWebhookResponse;
-use Zorvia\WebProxy\WebProxy;
-use Zorvia\WebProxy\WebhookProxyRouteDefinition;
-use Zorvia\WebProxy\WebProxyServiceProvider;
+use Webong\WebProxy\Headers;
+use Webong\WebProxy\Jobs\ProcessWebhookJob;
+use Webong\WebProxy\Models\WebProxyCall;
+use Webong\WebProxy\Tests\Support\TestRouter;
+use Webong\WebProxy\Tests\Support\TestSignatureValidator;
+use Webong\WebProxy\Tests\Support\TestWebhookJob;
+use Webong\WebProxy\Tests\Support\TestWebhookResponse;
+use Webong\WebProxy\WebProxy;
+use Webong\WebProxy\WebhookProxyRouteDefinition;
+use Webong\WebProxy\WebProxyServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

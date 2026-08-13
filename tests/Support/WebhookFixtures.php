@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Tests\Support;
+namespace Webong\WebProxy\Tests\Support;
 
 use Illuminate\Support\Str;
-use Zorvia\WebProxy\DestinationDefinition;
-use Zorvia\WebProxy\DestinationRecord;
-use Zorvia\WebProxy\Endpoint;
-use Zorvia\WebProxy\EndpointDefinition;
-use Zorvia\WebProxy\EnsureEndpoint;
+use Webong\WebProxy\DestinationDefinition;
+use Webong\WebProxy\DestinationRecord;
+use Webong\WebProxy\Endpoint;
+use Webong\WebProxy\EndpointDefinition;
+use Webong\WebProxy\EnsureEndpoint;
 
 final class WebhookFixtures
 {

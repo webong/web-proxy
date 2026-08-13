@@ -17,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Zorvia\\WebProxy\\": "src/"
+            "Webong\\WebProxy\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zorvia\\WebProxy\\Tests\\": "tests/"
+            "Webong\\WebProxy\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -31,7 +31,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zorvia\\WebProxy\\WebProxyServiceProvider"
+                "Webong\\WebProxy\\WebProxyServiceProvider"
             ]
         }
     },

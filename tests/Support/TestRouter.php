@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Tests\Support;
+namespace Webong\WebProxy\Tests\Support;
 
-use Zorvia\WebProxy\Contracts\Router;
-use Zorvia\WebProxy\Models\WebProxyCall;
-use Zorvia\WebProxy\WebhookRoute;
+use Webong\WebProxy\Contracts\Router;
+use Webong\WebProxy\Models\WebProxyCall;
+use Webong\WebProxy\WebhookRoute;
 
 final class TestRouter implements Router
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
-use Zorvia\WebProxy\WebhookExecutionContextPayload;
+use Webong\WebProxy\WebhookExecutionContextPayload;
 
 /**
  * Resolves the webhook proxy context for the current tenancy/authority on

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\EndpointProvider;
-use Zorvia\WebProxy\Models\WebProxyEndpoint;
-use Zorvia\WebProxy\Models\WebProxyEndpointRegistration;
-use Zorvia\WebProxy\Models\WebProxyDestination;
+use Webong\WebProxy\Contracts\EndpointProvider;
+use Webong\WebProxy\Models\WebProxyEndpoint;
+use Webong\WebProxy\Models\WebProxyEndpointRegistration;
+use Webong\WebProxy\Models\WebProxyDestination;
 use Closure;
 use Throwable;
 use Illuminate\Support\Collection;

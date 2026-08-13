@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
 use Illuminate\Support\Collection;
-use Zorvia\WebProxy\Endpoint;
-use Zorvia\WebProxy\EndpointDefinition;
-use Zorvia\WebProxy\DestinationDefinition;
-use Zorvia\WebProxy\DestinationRecord;
-use Zorvia\WebProxy\EndpointRecord;
-use Zorvia\WebProxy\ProvisionedEndpoint;
-use Zorvia\WebProxy\WebhookRoute;
+use Webong\WebProxy\Endpoint;
+use Webong\WebProxy\EndpointDefinition;
+use Webong\WebProxy\DestinationDefinition;
+use Webong\WebProxy\DestinationRecord;
+use Webong\WebProxy\EndpointRecord;
+use Webong\WebProxy\ProvisionedEndpoint;
+use Webong\WebProxy\WebhookRoute;
 
 interface EndpointProvider extends ExecutionContext
 {

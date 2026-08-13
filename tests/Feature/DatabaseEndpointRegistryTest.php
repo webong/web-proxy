@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Zorvia\WebProxy\DestinationRecord;
-use Zorvia\WebProxy\DestinationRegistry;
-use Zorvia\WebProxy\EndpointDefinition;
-use Zorvia\WebProxy\EndpointRecord;
-use Zorvia\WebProxy\EnsureEndpoint;
-use Zorvia\WebProxy\Models\WebProxyDestination;
-use Zorvia\WebProxy\Models\WebProxyEndpoint;
-use Zorvia\WebProxy\Tests\Support\WebhookFixtures;
+use Webong\WebProxy\DestinationRecord;
+use Webong\WebProxy\DestinationRegistry;
+use Webong\WebProxy\EndpointDefinition;
+use Webong\WebProxy\EndpointRecord;
+use Webong\WebProxy\EnsureEndpoint;
+use Webong\WebProxy\Models\WebProxyDestination;
+use Webong\WebProxy\Models\WebProxyEndpoint;
+use Webong\WebProxy\Tests\Support\WebhookFixtures;
 
 it('makes an unmanaged endpoint key deterministic for its external identity', function (): void {
     $endpoint = WebhookFixtures::endpoint(

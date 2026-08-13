@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
 
 final readonly class DestinationRecord
 {

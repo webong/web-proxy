@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Jobs;
+namespace Webong\WebProxy\Jobs;
 
-use Zorvia\WebProxy\Headers;
-use Zorvia\WebProxy\Models\WebProxyCall;
-use Zorvia\WebProxy\WebProxy;
-use Zorvia\WebProxy\WebProxyRegistryManager;
-use Zorvia\WebProxy\WebProxyChannelManager;
+use Webong\WebProxy\Headers;
+use Webong\WebProxy\Models\WebProxyCall;
+use Webong\WebProxy\WebProxy;
+use Webong\WebProxy\WebProxyRegistryManager;
+use Webong\WebProxy\WebProxyChannelManager;
 use RuntimeException;
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob as BaseProcessWebhookJob;
 use Spatie\WebhookClient\Models\WebhookCall;

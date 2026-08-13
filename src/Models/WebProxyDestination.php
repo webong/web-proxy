@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Models;
+namespace Webong\WebProxy\Models;
 
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

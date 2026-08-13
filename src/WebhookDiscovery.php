@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
 use ReflectionClass;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RuntimeException;
-use Zorvia\WebProxy\Attributes\WebhookRouter;
-use Zorvia\WebProxy\Attributes\WebhookTarget;
-use Zorvia\WebProxy\Contracts\Router;
-use Zorvia\WebProxy\Contracts\WebhookEvent;
-use Zorvia\WebProxy\Contracts\WebhookJob;
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Attributes\WebhookRouter;
+use Webong\WebProxy\Attributes\WebhookTarget;
+use Webong\WebProxy\Contracts\Router;
+use Webong\WebProxy\Contracts\WebhookEvent;
+use Webong\WebProxy\Contracts\WebhookJob;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
 
 final class WebhookDiscovery
 {

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Jobs;
+namespace Webong\WebProxy\Jobs;
 
-use Zorvia\WebProxy\Events\WebhookDeliveryFailed;
-use Zorvia\WebProxy\Events\WebhookDeliverySucceeded;
-use Zorvia\WebProxy\Contracts\EndpointProvider;
-use Zorvia\WebProxy\WebhookProxyDelivery;
-use Zorvia\WebProxy\WebProxy;
-use Zorvia\WebProxy\WebProxyRegistryManager;
+use Webong\WebProxy\Events\WebhookDeliveryFailed;
+use Webong\WebProxy\Events\WebhookDeliverySucceeded;
+use Webong\WebProxy\Contracts\EndpointProvider;
+use Webong\WebProxy\WebhookProxyDelivery;
+use Webong\WebProxy\WebProxy;
+use Webong\WebProxy\WebProxyRegistryManager;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use RuntimeException;
-use Zorvia\WebProxy\Console\Commands\DiscoverWebProxyCommand;
+use Webong\WebProxy\Console\Commands\DiscoverWebProxyCommand;
 
 class WebProxyServiceProvider extends ServiceProvider
 {

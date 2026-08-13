@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
 use InvalidArgumentException;
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
 
 final class WebhookTargetRegistry
 {

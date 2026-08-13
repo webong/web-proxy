@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\WebhookEvent;
-use Zorvia\WebProxy\Contracts\WebhookJob;
-use Zorvia\WebProxy\Contracts\EndpointProvider;
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
-use Zorvia\WebProxy\Jobs\ForwardWebhookJob;
+use Webong\WebProxy\Contracts\WebhookEvent;
+use Webong\WebProxy\Contracts\WebhookJob;
+use Webong\WebProxy\Contracts\EndpointProvider;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Jobs\ForwardWebhookJob;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
 use RuntimeException;
 use Throwable;

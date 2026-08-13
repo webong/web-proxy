@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\WebhookContextProvider;
+use Webong\WebProxy\Contracts\WebhookContextProvider;
 use Closure;
 use Illuminate\Support\Facades\Context;
 

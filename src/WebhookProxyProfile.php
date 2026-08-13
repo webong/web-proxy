@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
 use Illuminate\Http\Request;
 use Spatie\WebhookClient\WebhookProfile\WebhookProfile;

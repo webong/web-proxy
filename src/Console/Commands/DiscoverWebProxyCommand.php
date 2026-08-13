@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Console\Commands;
+namespace Webong\WebProxy\Console\Commands;
 
 use Illuminate\Console\Command;
-use Zorvia\WebProxy\WebhookDiscovery;
+use Webong\WebProxy\WebhookDiscovery;
 
 final class DiscoverWebProxyCommand extends Command
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
-use Zorvia\WebProxy\Models\WebProxyCall;
-use Zorvia\WebProxy\WebhookRoute;
+use Webong\WebProxy\Models\WebProxyCall;
+use Webong\WebProxy\WebhookRoute;
 
 interface Router
 {

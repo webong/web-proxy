@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Events;
+namespace Webong\WebProxy\Events;
 
-use Zorvia\WebProxy\WebhookProxyDelivery;
+use Webong\WebProxy\WebhookProxyDelivery;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 

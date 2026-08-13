@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
-use Zorvia\WebProxy\WebhookProxyDelivery;
+use Webong\WebProxy\WebhookProxyDelivery;
 
 interface WebhookEvent
 {

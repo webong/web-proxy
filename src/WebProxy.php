@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\Router;
-use Zorvia\WebProxy\Contracts\EndpointProvider;
+use Webong\WebProxy\Contracts\Router;
+use Webong\WebProxy\Contracts\EndpointProvider;
 use Illuminate\Contracts\Container\Container;
 use InvalidArgumentException;
 use LogicException;

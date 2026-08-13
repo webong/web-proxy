@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\EndpointProvider;
+use Webong\WebProxy\Contracts\EndpointProvider;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
 

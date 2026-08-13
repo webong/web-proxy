@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Zorvia\WebProxy\EndpointUrlGenerator;
+use Webong\WebProxy\EndpointUrlGenerator;
 
 it('uses a provided path template to build a callback URL', function (): void {
     config()->set('web-proxy.base_url', 'https://service.example.test');

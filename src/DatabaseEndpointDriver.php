@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\EndpointDriver;
+use Webong\WebProxy\Contracts\EndpointDriver;
 
 final class DatabaseEndpointDriver implements EndpointDriver
 {

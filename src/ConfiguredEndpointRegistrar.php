@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
 use Closure;
-use Zorvia\WebProxy\Contracts\EndpointDriver;
-use Zorvia\WebProxy\Contracts\EndpointProvider;
-use Zorvia\WebProxy\Contracts\EndpointRegistrar;
+use Webong\WebProxy\Contracts\EndpointDriver;
+use Webong\WebProxy\Contracts\EndpointProvider;
+use Webong\WebProxy\Contracts\EndpointRegistrar;
 
 final class ConfiguredEndpointRegistrar implements EndpointRegistrar
 {

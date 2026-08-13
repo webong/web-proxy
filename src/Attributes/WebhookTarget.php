@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Attributes;
+namespace Webong\WebProxy\Attributes;
 
 use Attribute;
-use Zorvia\WebProxy\Enums\WebhookProxyTargetType;
+use Webong\WebProxy\Enums\WebhookProxyTargetType;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]
 final class WebhookTarget

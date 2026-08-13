@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
-use Zorvia\WebProxy\EndpointDefinition;
-use Zorvia\WebProxy\ProvisionedEndpoint;
+use Webong\WebProxy\EndpointDefinition;
+use Webong\WebProxy\ProvisionedEndpoint;
 
 interface EndpointDriver
 {

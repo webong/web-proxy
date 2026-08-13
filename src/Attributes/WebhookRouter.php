@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Attributes;
+namespace Webong\WebProxy\Attributes;
 
 use Attribute;
 

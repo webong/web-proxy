@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Models;
+namespace Webong\WebProxy\Models;
 
 use Illuminate\Http\Request;
 use LogicException;
 use Spatie\WebhookClient\Models\WebhookCall;
 use Spatie\WebhookClient\WebhookConfig;
-use Zorvia\WebProxy\EndpointRecord;
-use Zorvia\WebProxy\EndpointWebhookConfig;
+use Webong\WebProxy\EndpointRecord;
+use Webong\WebProxy\EndpointWebhookConfig;
 
 class WebProxyCall extends WebhookCall
 {
@@ -27,7 +27,7 @@ class WebProxyCall extends WebhookCall
             if (is_array($endpointConfig->storeHeaders)) {
                 $endpointConfig->storeHeaders = array_values(array_unique([
                     ...$endpointConfig->storeHeaders,
-                    \Zorvia\WebProxy\Headers::ENDPOINT,
+                    \Webong\WebProxy\Headers::ENDPOINT,
                 ]));
             }
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
-use Zorvia\WebProxy\Endpoint;
-use Zorvia\WebProxy\EndpointDefinition;
-use Zorvia\WebProxy\EndpointRecord;
+use Webong\WebProxy\Endpoint;
+use Webong\WebProxy\EndpointDefinition;
+use Webong\WebProxy\EndpointRecord;
 
 interface EndpointRegistrar extends ExecutionContext
 {

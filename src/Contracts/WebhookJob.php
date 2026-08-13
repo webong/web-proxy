@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy\Contracts;
+namespace Webong\WebProxy\Contracts;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Zorvia\WebProxy\WebhookProxyDelivery;
+use Webong\WebProxy\WebhookProxyDelivery;
 
 interface WebhookJob extends ShouldQueue
 {

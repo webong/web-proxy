@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zorvia\WebProxy;
+namespace Webong\WebProxy;
 
-use Zorvia\WebProxy\Contracts\EndpointRegistrar;
+use Webong\WebProxy\Contracts\EndpointRegistrar;
 
 final readonly class ResolvedEndpoint
 {
