@@ -1,5 +1,5 @@
 {
-    "name": "zorvia/web-proxy",
+    "name": "webong/web-proxy",
     "description": "Webhook proxy system for multi-tenant webhook routing and delivery",
     "type": "library",
     "license": "MIT",
