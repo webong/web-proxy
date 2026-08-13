@@ -48,9 +48,8 @@ final class WebhookContext
      * Persist the resolved context into Laravel's hidden context for the
      * current request/tenancy scope.
      *
-     * Re-resolves the context from the provider so repeated bootstraps reflect
-     * the latest configuration, rather than reusing a previously captured
-     * payload.
+     * Re-resolves the context from the current owner and route configuration
+     * so repeated bootstraps do not reuse a stale payload.
      */
     /** @param array<string, string>|null $pathTemplates */
     public function hydrate(?string $ownerKey = null, ?array $pathTemplates = null): void
