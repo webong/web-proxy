@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use Webong\WebProxy\EndpointUrlGenerator;
+use Webong\WebProxy\Tests\Support\TestWebhookContextProvider;
+use Webong\WebProxy\WebhookContext;
 
 it('uses a provided path template to build a callback URL', function (): void {
     config()->set('web-proxy.base_url', 'https://service.example.test');
@@ -15,6 +17,18 @@ it('uses a provided path template to build a callback URL', function (): void {
     ]);
 
     expect($url)->toBe('https://service.example.test/webhooks/telegram/scope-123');
+});
+
+it('uses the host context provider when resolving its execution payload', function (): void {
+    config()->set('web-proxy.context_provider', TestWebhookContextProvider::class);
+
+    $payload = app(WebhookContext::class)->payload();
+
+    expect($payload->ownerId)->toBe('owner-123')
+        ->and($payload->pathTemplates)->toBe([
+            'test-router' => '/webhooks/test-router/owner-123',
+        ])
+        ->and($payload->routeParameters)->toBe(['scope' => 'owner-123']);
 });
 
 it('does not infer a scope segment from unrelated context', function (): void {

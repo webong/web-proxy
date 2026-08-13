@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Webong\WebProxy;
 
 use Closure;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Facades\Context;
+use Webong\WebProxy\Contracts\WebhookContextProvider;
 
 /**
  * Resolves the webhook proxy context from the owner key supplied by the host
@@ -14,6 +16,7 @@ use Illuminate\Support\Facades\Context;
 final class WebhookContext
 {
     public function __construct(
+        private readonly Container $container,
         private readonly WebhookBaseUrlResolver $baseUrlResolver,
         private readonly WebhookPathTemplates $pathTemplates,
         private readonly WebhookProxyRouteDefinition $routeDefinition,
@@ -79,6 +82,14 @@ final class WebhookContext
     /** @param array<string, string>|null $pathTemplates */
     private function payloadForOwner(?string $ownerKey, ?array $pathTemplates = null): WebhookExecutionContextPayload
     {
+        if ($pathTemplates === null) {
+            $provider = $this->contextProvider();
+
+            if ($provider !== null) {
+                return $provider->resolve();
+            }
+        }
+
         return new WebhookExecutionContextPayload(
             ownerId: $ownerKey,
             baseUrl: $this->baseUrlResolver->resolve(),
@@ -86,6 +97,17 @@ final class WebhookContext
             routeParameters: $this->routeParameters($ownerKey),
             routeContext: $ownerKey === null ? null : rawurlencode($ownerKey),
         );
+    }
+
+    private function contextProvider(): ?WebhookContextProvider
+    {
+        $provider = config('web-proxy.context_provider');
+
+        if (! is_string($provider) || ! is_a($provider, WebhookContextProvider::class, true)) {
+            return null;
+        }
+
+        return $this->container->make($provider);
     }
 
     private function ownerKey(): ?string
