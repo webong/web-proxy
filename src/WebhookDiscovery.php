@@ -41,7 +41,10 @@ final class WebhookDiscovery
             }
 
             $reflection = new ReflectionClass($class);
-            foreach ($reflection->getAttributes(WebhookTarget::class) as $attribute) {
+            foreach ($reflection->getAttributes() as $attribute) {
+                if (! is_a($attribute->getName(), WebhookTarget::class, true)) {
+                    continue;
+                }
                 $target = $attribute->newInstance();
                 $type = $target->type ?? match (true) {
                     is_a($class, WebhookJob::class, true) => WebhookProxyTargetType::JOB,
@@ -63,7 +66,10 @@ final class WebhookDiscovery
                 $targets[$key][$target->key] = $class;
             }
 
-            foreach ($reflection->getAttributes(WebhookRouter::class) as $attribute) {
+            foreach ($reflection->getAttributes() as $attribute) {
+                if (! is_a($attribute->getName(), WebhookRouter::class, true)) {
+                    continue;
+                }
                 $router = $attribute->newInstance();
                 if (! is_a($class, Router::class, true)) {
                     throw new RuntimeException("Webhook router [{$class}] must implement the Router contract.");
