@@ -12,6 +12,17 @@ return [
 
     'secret' => env('WEB_PROXY_SECRET'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Context Provider
+    |--------------------------------------------------------------------------
+    |
+    | Applications may provide a context provider for tenant, authority, or
+    | request-specific webhook routing. The package remains context-agnostic.
+    |
+    */
+    'context_provider' => null,
+
 
     /*
     |--------------------------------------------------------------------------
